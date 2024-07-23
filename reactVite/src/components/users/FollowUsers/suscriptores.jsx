@@ -1,21 +1,21 @@
-import React  from "react";
 
-const Suscriptores = ({nombreUsuario})=>{
 
-    console.log(nombreUsuario)
+const Suscriptores = ({nombre, username, avatar, format})=>{
+
     return(
         <>
             <div  className="seguidores">
-                <img src="" alt="" />
+                <img src={avatar} alt="" />
                 <div className='datosUsers'>
-                    <h2>Yeison Barrios</h2>
-                    <small>@ybarriosf</small>
+                    <h2>{nombre}</h2>
+                    <small>@{username}</small>
                 </div>
-                <button>Seguir</button>
-            </div>
+                <button>X</button>
+            </div> 
         </>
     )
 }
 
 
+  
 export default Suscriptores;

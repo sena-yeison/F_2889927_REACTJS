@@ -1,28 +1,24 @@
-// import { useState } from "react"
-import { Users } from "./components/users/users";
+import FormClient from "./components/clients/form-clients"
+import Users from "./components/users/users"
+import ListClient from "./components/clients/list-clients";
+import { useState } from "react";
+import Suppliers from "./components/suppliers/suppliers";
 
 function App() {
-  
-  // const [count, setCount] = useState(1);
 
-  // setTimeout(() => {
-  //   // setCount(count+1)
-  // }, 1000);
-
-  // const handleAdd = () => {
-  //   setCount(count+1)
+  // const [listClients, setListClients] = useState([])
+  // const onHandleCient = (client)=>{
+  //   setListClients([...listClients, client]);
+  //   console.log(client)
   // }
 
+  
+  
   return (
-    <>
-    <Users/>
-
-{/*       
-      <div className="container">CONTADOR: {count}</div>
-      <button onClick={handleAdd}>+</button>
-      <button>Reiniciar</button>
-      <button>-</button> */}
-    </>
+    <div className="container">
+      {/* <Users/> */}
+      <Suppliers/>
+    </div>
   )
 }
 
