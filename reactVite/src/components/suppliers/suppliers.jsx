@@ -15,7 +15,7 @@ const Suppliers = ()=>{
     return(
         <>
             <FormSuppliers handleSupplier={handleSuppliers}/>
-            <ListSuppliers listSuppliers={listSuppliers}/>
+            <ListSuppliers listSuppliers={listSuppliers} isActive={true}/>
         </>
     )
 }
