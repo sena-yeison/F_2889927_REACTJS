@@ -4,11 +4,11 @@ const FormSuppliers = ({handleSupplier}) => {
 
     const [name, setName] = useState("");
     const [lastname, setLastName] = useState("");
-
+    const active = true;
 
     const onAddSupplier = (e)=>{
         e.preventDefault();
-        handleSupplier({name, lastname});
+        handleSupplier({name, lastname, active});
         setName("");
         setLastName("");
     }

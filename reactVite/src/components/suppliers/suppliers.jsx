@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ListSuppliers from "./components/list-supplier";
 import FormSuppliers from "./components/form-supliers";
 
-const Suppliers = ()=>{
+const Suppliers = ()=>{ 
 
     const [listSuppliers, setListSuppliers] = useState([]) ;
 
@@ -15,7 +15,7 @@ const Suppliers = ()=>{
     return(
         <>
             <FormSuppliers handleSupplier={handleSuppliers}/>
-            <ListSuppliers listSuppliers={listSuppliers} isActive={true}/>
+            <ListSuppliers listSuppliers={listSuppliers}/>
         </>
     )
 }
