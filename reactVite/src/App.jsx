@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="container">
       {/* <Users/> */}
-      <Suppliers/>
+      {/* <Suppliers/> */}
     </div>
   )
 }

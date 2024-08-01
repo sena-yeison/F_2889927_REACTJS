@@ -8,9 +8,6 @@ const ListSuppliers = ({ listSuppliers = [] }) => {
         let status = listSuppliers[i].active = !listSuppliers[i].active
         setActive(status);
     }
-
-
-
     return (
         <>
             <div className="card">
@@ -38,7 +35,7 @@ const ListSuppliers = ({ listSuppliers = [] }) => {
                                         </button>
                                     </td>
                                     <td>
-                                        <button className="btn btn-info btn-sm">Ver</button>
+                                        <button className="btn btn-info btn-sm"><i className="fa-solid fa-user"></i></button>
                                     </td>
                                 </tr>
                             ))}
