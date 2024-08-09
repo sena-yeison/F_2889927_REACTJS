@@ -1,0 +1,47 @@
+.tarjeta{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 4px 6px black;
+    padding: 20px 5px;
+  }
+  .imagenUsers img{
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  
+  .seguidores{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1px solid gray;
+    box-shadow: 2px 1px 2px 1px black;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .seguidores button{
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(5, 5, 175);
+    color: white;
+  }
+  
+  .seguidores .datosUsers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    line-height: 10px;
+  }
+  .seguidores img{
+    width: 20%;
+  }

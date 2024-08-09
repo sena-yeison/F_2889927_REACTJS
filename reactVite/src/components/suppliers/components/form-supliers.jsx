@@ -8,16 +8,19 @@ const FormSuppliers = ({handleSupplier}) => {
 
     const onAddSupplier = (e)=>{
         e.preventDefault();
-        handleSupplier({name, lastname, active});
+        handleSupplier({name, lastname, active}); 
         setName("");
         setLastName("");
     }
+
+
+    console.log("Componente del Formulario ")
 
   return (
     <>
       <div className="card">
         <div className="card-header">
-          <h2>Registro de Proveedores</h2>
+          <h2>Registro de Proveedor</h2>
         </div>
         <div className="card-body">
           <form  onSubmit={onAddSupplier}>

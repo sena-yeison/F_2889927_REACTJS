@@ -8,8 +8,11 @@ const ListSuppliers = ({ listSuppliers = [] }) => {
         let status = listSuppliers[i].active = !listSuppliers[i].active
         setActive(status);
     }
+
+    console.log("Componente del Listado")
+
     return (
-        <>
+        <> 
             <div className="card">
                 <div className="card-header">
                     <h2>Proveedores</h2>
