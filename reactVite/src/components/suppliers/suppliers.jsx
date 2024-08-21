@@ -17,7 +17,6 @@ const Suppliers = ()=>{
 
     return(
         <>
-        <h2>H</h2>
             <FormSuppliers handleSupplier={handleSuppliers}/>
             <ListSuppliers listSuppliers={listSuppliers}/>
         </>

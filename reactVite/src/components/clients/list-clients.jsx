@@ -1,9 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
 
-const ListClient = ({clients=[]}) => {
+
+
+const ListClient = () => {
+
   return (
     <div>
-      <h2>Lista de Clientes</h2>
+      {/* <h2>Lista de Clientes</h2>
       <table>
         <thead>
           <tr>
@@ -23,7 +26,7 @@ const ListClient = ({clients=[]}) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };

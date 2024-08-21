@@ -1,6 +1,8 @@
 // import React from 'react';
+import { useContext } from "react";
 import "../../App.css";
 import Suscriptores from "./FollowUsers/suscriptores";
+import { useToggleUserContext, useUserContext } from "../context/Providers";
 
 const Users = () => {
   let dataUser = {
@@ -13,8 +15,14 @@ const Users = () => {
     username: "barrios_16"
   };
 
+
+  const login = useUserContext();
+  const handleLogin = useToggleUserContext();
+  
   return (
     <div className="tarjeta">
+      <button onClick={handleLogin}>Registro</button>
+      <p> Bienvenid@ : {login ? (<p>{login.nombre}</p>) : "Pailas" }</p>
       <div className="imagenUsers">
         <img src={dataUser.img} alt="" />
       </div>
