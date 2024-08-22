@@ -3,6 +3,7 @@ import { useContext } from "react";
 import "../../App.css";
 import Suscriptores from "./FollowUsers/suscriptores";
 import { useToggleUserContext, useUserContext } from "../context/Providers";
+import { useToggleUsersContext, useUsersContext } from "../context/contextProvider";
 
 const Users = () => {
   let dataUser = {
@@ -15,19 +16,24 @@ const Users = () => {
     username: "barrios_16"
   };
 
-
-  const login = useUserContext();
-  const handleLogin = useToggleUserContext();
+  const validar = useToggleUsersContext()
+  const users = useUsersContext();
   
   return (
+    <>
+    <button onClick={validar}>Validar usuario</button>
     <div className="tarjeta">
-      <button onClick={handleLogin}>Registro</button>
-      <p> Bienvenid@ : {login ? (<p>{login.nombre}</p>) : "Pailas" }</p>
+
+
+
+
+
+      <p> Bienvenid@ </p>
       <div className="imagenUsers">
         <img src={dataUser.img} alt="" />
       </div>
       <div className="informacion">
-        <h2>{dataUser.name}</h2>
+        <h2>{users ? (users.nombre) : ''}</h2>
         <ol>
           <li>{dataUser.lastname}</li>
           <li>{dataUser.location}</li>
@@ -42,6 +48,7 @@ const Users = () => {
         avatar={dataUser.img}
       />
     </div>
+    </>
   );
 };
 

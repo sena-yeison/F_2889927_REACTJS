@@ -5,6 +5,7 @@ import Suppliers from "./components/suppliers/suppliers";
 import MainCicloDeVida from "./components/CicloDeVida/main";
 import React, { createContext, useState } from "react";
 import Providers from "./components/context/Providers";
+import ContextProvider from "./components/context/contextProvider";
 
 // Creamos el conexto
 
@@ -17,15 +18,15 @@ function App() {
 
   return (
     <>
-      <Providers>
+      <ContextProvider>
         <div className="container">
           <Users />
-          {/* <Suppliers /> */}
+          <Suppliers />
           {/* <FormClient onHandleCient={onHandleCient} /> */}
           {/* <ListClient clients={listClients} /> */}
           {/* <MainCicloDeVida /> */}
         </div>
-      </Providers>
+      </ContextProvider>
     </>
   );
 }

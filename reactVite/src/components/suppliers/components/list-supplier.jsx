@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useToggleUsersContext } from "../../context/contextProvider";
 
 const ListSuppliers = ({ listSuppliers = [] }) => {
 
@@ -11,8 +12,11 @@ const ListSuppliers = ({ listSuppliers = [] }) => {
 
     console.log("Componente del Listado")
 
+    const ver = useToggleUsersContext()
     return (
         <> 
+
+            <button onClick={ver}>Ver datos del contexto</button>
             <div className="card">
                 <div className="card-header">
                     <h2>Proveedores</h2>
