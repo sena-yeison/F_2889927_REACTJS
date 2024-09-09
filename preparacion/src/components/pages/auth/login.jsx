@@ -1,7 +1,29 @@
 import React from "react";
-
+import useHookAcces from "../../../hooks/hooksAcces";
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+  
+  const navigate = useNavigate();
+
+  const { name, email, password, onInputChange, onResetForm } = useHookAcces({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+
+  const onLogin = (e) =>{
+    e.preventDefault();
+    navigate('/dashboard',{
+      replace:true
+  })
+    onResetForm();
+  }
+
+
+
   return (
     <>
       <div className="conteiner  d-flex justify-content-center align-items-center mt-5">
@@ -12,11 +34,28 @@ const Login = () => {
             <form className="col-12">
               <div className="col-12">
                 <label htmlFor="" className="label-control">Email</label>
-                <input type="email" className="form-control col-12" name="email" required autoComplete="off" />
-              </div>
+                <input 
+                  type="email" 
+                  className="form-control col-12"  
+                  name="email"
+                  id="email"
+                  value={email}
+                  onChange={onInputChange} 
+                  required 
+                  autoComplete="off" 
+                />              </div>
               <div className="col-12">
                 <label htmlFor="" className="label-control">Password</label>
-                <input type="password" className="form-control col-12" name="password" required autoComplete="off" />
+                <input 
+                  type="password" 
+                  className="form-control col-12" 
+                  name="password"
+                  id="password"
+                  value={password}
+                  onChange={onInputChange}  
+                  required 
+                  autoComplete="off" 
+                />
               </div>
               <div className="mt-3">
                 <button className="btn btn-primary btn-sm col-12"> Acceder</button>

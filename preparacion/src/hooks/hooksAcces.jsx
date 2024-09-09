@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const useHookAcces = (initForm = {} ) =>{
 
     const [formState, setFormState] = useState(initForm);
 
-    // Llenar los datos del usuario
-    const onInputChange = ({target}) =>{
-        const { name, value } = target;
-        setFormState({
-            ...setFormState,
-            [name]: value
-        })
+
+    // Guardar datos en el storage
+    const onInputChange = (initForm) =>{
+       localStorage.setItem("user", JSON.stringify(initForm))
     }
 
 
-    // Reseteamo el formulario
+    // Limpiamos el formulario
     const onResetForm = () =>{
         setFormState(initForm)
     }
+
 
     return{
         ...setFormState,

@@ -8,10 +8,11 @@ import Register from "../pages/auth/register";
 import Error404 from "../pages/404";
 import Home from "../pages/home";
 import Dashboard from "../pages/dashboard";
+import RouterPrivate from "../utils/routerPrivate";
 
 const Header = () =>{
 
-    return(
+    return( 
         <Routes>
             <Route path="/" element={<HomeRouters/>}>
                 <Route path="/" element={<Home/>}/>
@@ -20,8 +21,9 @@ const Header = () =>{
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/home" element={<Home/>}/>
-                <Route path="/dashboard" element={<Dashboard/>}/>
-                <Route path="*" element={<Error404/>}/>
+                <Route element={<RouterPrivate canLogin={true}/>}>
+                    <Route path="/dashboard" element={<Dashboard/>}/>
+                </Route>
             </Route>
         </Routes>
 
