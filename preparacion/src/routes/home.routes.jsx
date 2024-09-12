@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { UseLoginContext } from "../components/context/userLoginContext";
 
 const HomeRouters = () =>{
+
+  const {onLoginAccess, userLogin, isLogin, onLogOut} = useContext(UseLoginContext);
+
 
     return(
         <>
@@ -11,17 +15,18 @@ const HomeRouters = () =>{
                     <Link className="li" to="/" >Inicio</Link>
                     <Link className="li" to="/services">Servicios</Link>
                     <Link className="li" to="/contacts">Contactos</Link>
-                    <Link className="li" to="/login">Acceder</Link>
-                    <Link className="li" to="/register">Registrarse</Link>
-                    <Link className="li" to="/dashboard">Dashboard</Link>
-
-
+                    {!isLogin && <Link  className="li" to="/login">Acceder</Link> }
+                    {!isLogin && <Link className="li" to="/register">Registrarse</Link> }
+                    {isLogin && <Link className="li" to="/dashboard">Dashboard</Link> }
                 </ul>
 
-                <div>
-                    <span>Nombre del Usuario Logueado</span>
-                    <button>Salir</button>
-                </div>
+                {isLogin ? (
+                     <div >
+                     <span>{userLogin.name}</span>
+                     <button onClick={onLogOut}>Salir</button>
+                 </div>
+                ) : ''}
+               
             </nav>
         </div>
 

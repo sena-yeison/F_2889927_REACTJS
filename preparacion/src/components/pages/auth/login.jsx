@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import useHookAcces from "../../../hooks/hooksAcces";
-import { useNavigate } from 'react-router-dom'
+import { json, useNavigate } from 'react-router-dom'
+import { UseLoginContext } from "../../context/userLoginContext";
 
 const Login = () => {
-
-  
   const navigate = useNavigate();
 
-  const { name, email, password, onInputChange, onResetForm } = useHookAcces({
-    name: "",
-    email: "",
-    password: ""
-  });
+  // Obtener los datos del Local storage
+  const userLoginStorage = JSON.parse(localStorage.getItem("user"));
 
+  // Implementar el contexto
+  const {onLoginAccess, userLogin, setUserlogin, onLogOut} = useContext(UseLoginContext);
 
+  // Impementar el Hooks
+  const { onInputChange, onResetForm } = useHookAcces();
+
+  // Variables de accesos
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // Función del login 
   const onLogin = (e) =>{
     e.preventDefault();
-    navigate('/dashboard',{
-      replace:true
-  })
+    if(!userLoginStorage){
+      alert("Lo sentimos! no existe en la base de datos")
+    }else if(email == userLoginStorage.email && password == userLoginStorage.password){
+      onLoginAccess(userLoginStorage)
+      navigate('/dashboard',{
+        replace:true
+      }
+    )
+    }else{
+      alert("Credenciales incorrectas")
+    }
     onResetForm();
   }
 
@@ -31,7 +45,7 @@ const Login = () => {
           <div className="card-body d-flex flex-column justify-content-centera align-items-center">
             <img src="https://static.vecteezy.com/system/resources/previews/024/553/534/non_2x/lion-head-logo-mascot-wildlife-animal-illustration-generative-ai-png.png" className="image-fluid " alt="" />
             <h3>SARA</h3>
-            <form className="col-12">
+            <form className="col-12" onSubmit={onLogin}>
               <div className="col-12">
                 <label htmlFor="" className="label-control">Email</label>
                 <input 
@@ -40,10 +54,10 @@ const Login = () => {
                   name="email"
                   id="email"
                   value={email}
-                  onChange={onInputChange} 
+                  onChange={(e) => setEmail(e.target.value)} 
                   required 
-                  autoComplete="off" 
-                />              </div>
+                />              
+              </div>
               <div className="col-12">
                 <label htmlFor="" className="label-control">Password</label>
                 <input 
@@ -52,9 +66,8 @@ const Login = () => {
                   name="password"
                   id="password"
                   value={password}
-                  onChange={onInputChange}  
+                  onChange={(e) => setPassword(e.target.value)}  
                   required 
-                  autoComplete="off" 
                 />
               </div>
               <div className="mt-3">
