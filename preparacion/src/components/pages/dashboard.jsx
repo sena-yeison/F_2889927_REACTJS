@@ -4,12 +4,13 @@ import { UseLoginContext } from "../context/userLoginContext";
 
 const Dashboard = () => {
 
-  const {onLoginAccess, userLogin, setUserlogin, onLogOut} = useContext(UseLoginContext);
+  const {userLogin} = useContext(UseLoginContext);
 
+ 
 
     return (
       <>
-       <p>Dashboard</p>
+       <p>Dashboard {userLogin.name}</p>
       </>
     );
   };

@@ -5,9 +5,11 @@ import { UserLoginContext } from './components/context/userLoginContext'
 
 function App() {
   return (
+    <div className='contenedor'>
     <UserLoginContext>
       <Header/>
     </UserLoginContext>
+    </div>
   )
 }
 
